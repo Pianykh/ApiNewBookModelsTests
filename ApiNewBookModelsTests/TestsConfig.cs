@@ -12,6 +12,7 @@ namespace ApiNewBookModelsTests
         protected static string _validFirstName = "John";
         protected static string _validSecondName = "Tribiani";
         protected static string _validPassword = "1Qazxcdew46109(";
+        protected static string _validNewPassword = "1Qazxcdew46109(@";
         protected static string _validEmail = $"qweqweqweqweqwe{_uniqueNumber}@gmail.com";
         protected static string _validNewEmail = $"rtyrtyrtyrtyrty{_uniqueNumber}@gmail.com";
         protected static string _validPhone = "1231231212";
