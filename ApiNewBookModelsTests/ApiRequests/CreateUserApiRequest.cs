@@ -6,9 +6,9 @@ using System.Text;
 
 namespace ApiNewBookModelsTests.ApiRequests.Models
 {
-    public class CreateUserApiRequest
+    public static class CreateUserApiRequest
     {
-        public ClientAuthModel CreateUserViaApi(string email, string firstName, string lastName, string password, string phoneNumber)
+        public static ClientAuthModel CreateUserViaApi(string email, string firstName, string lastName, string password, string phoneNumber)
         {
             var client = new RestClient("https://api.newbookmodels.com/api/v1/auth/client/signup/");
             var request = new RestRequest(Method.POST);
