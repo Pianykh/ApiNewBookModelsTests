@@ -22,7 +22,7 @@ namespace ApiNewBookModelsTests
         [SetUp]
         public void Setup()
         {
-            _user =CreateUserApiRequest.CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
+            _user =CreateUserApiRequest.SendRequestCreateUser(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
         }
     }
 }

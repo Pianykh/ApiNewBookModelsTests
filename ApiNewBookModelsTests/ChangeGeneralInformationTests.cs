@@ -30,7 +30,10 @@ namespace ApiNewBookModelsTests
         [Test]
         public void ChangeIndustry_ShouldChangeIndustry()
         {
-            var user = CreateUserApiRequest.CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
+            var expectedIndustry = "Food";
+            var newIndustry = ChangeIndustryApiRequest.SendRequestChangeIndustry(expectedIndustry, _user.TokenData.Token);
+
+            Assert.AreEqual(expectedIndustry, newIndustry);
         }
     }
 }

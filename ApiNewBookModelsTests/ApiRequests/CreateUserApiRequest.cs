@@ -8,7 +8,7 @@ namespace ApiNewBookModelsTests.ApiRequests.Models
 {
     public static class CreateUserApiRequest
     {
-        public static ClientAuthModel CreateUserViaApi(string email, string firstName, string lastName, string password, string phoneNumber)
+        public static ClientAuthModel SendRequestCreateUser(string email, string firstName, string lastName, string password, string phoneNumber)
         {
             var client = new RestClient("https://api.newbookmodels.com/api/v1/auth/client/signup/");
             var request = new RestRequest(Method.POST);
