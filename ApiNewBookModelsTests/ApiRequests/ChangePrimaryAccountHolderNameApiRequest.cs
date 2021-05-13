@@ -9,7 +9,7 @@ namespace ApiNewBookModelsTests.ApiRequests
 {
     public static class ChangePrimaryAccountHolderNameApiRequest
     {
-        public static string SendRequestChangePrimaryAccountHolderName(string firstName, string lastName, string token)
+        public static ChangedPrimaryAccountHolderNameModel SendRequestChangePrimaryAccountHolderName(string firstName, string lastName, string token)
         {
             var client = new RestClient("https://api.newbookmodels.com/api/v1/client/self/");
             var request = new RestRequest(Method.PATCH);
@@ -27,7 +27,7 @@ namespace ApiNewBookModelsTests.ApiRequests
             var response = client.Execute(request);
             var newGeneralInfo = JsonConvert.DeserializeObject<ChangedPrimaryAccountHolderNameModel>(response.Content);
 
-            return newGeneralInfo.ToString();        // ????????///??/??/
+            return newGeneralInfo;
         }
     }
 }

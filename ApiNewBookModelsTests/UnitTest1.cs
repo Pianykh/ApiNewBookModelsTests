@@ -17,36 +17,15 @@ namespace ApiNewBookModelsTests
         private static string _validPassword = "1Qazxcdew46109(";
         private static string _validEmail = $"qweqweqweqweqwe{_uniqueNumber}@gmail.com";
         private static string _validNewEmail = $"rtyrtyrtyrtyrty{_uniqueNumber}@gmail.com";
-        private static string _validPhone = "1231231212";
-
-
-        [SetUp]
-        public void Setup()
-        {
-        }
+        private static string _validPhone = "1231231212";        
 
         [Test]
         public void ChangeEmail_ShouldChangeEmail()
         {
-            var user = new CreateUserApiRequest().CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
-
-            //new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            //var webDriver = new ChromeDriver();
-            //webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(7);
-            //webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-            //IJavaScriptExecutor js = webDriver;
-            //webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
-            //js.ExecuteScript($"localStorage.setItem('access_token','{user.TokenData.Token}')");
-
+            var user = new CreateUserApiRequest().CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone); 
             var newEmail = ChangeEmailApiRequest.SendRequestChangeEmail(_validPassword, _validNewEmail, user.TokenData.Token);
+
             Assert.AreEqual(newEmail, _validNewEmail);
-
-        }
-        [Test]
-        public void ChangeGeneralInformation_ShouldChangeGeneralInformation()
-        {
-            var user = new CreateUserApiRequest().CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
-
-        }
+        }        
     }
 }

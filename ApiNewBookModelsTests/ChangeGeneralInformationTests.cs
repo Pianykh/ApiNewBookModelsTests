@@ -25,17 +25,23 @@ namespace ApiNewBookModelsTests
         private static string _validNewSecondName = "Willis";
 
         [Test]
-        public void ChangeGeneralInformation_ShouldChangeGeneralInformation()
+        public void ChangePrimaryAccountHolderName_ShouldChangePrimaryAccountHolderName()
         {
             var user = new CreateUserApiRequest().CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
             var newPrimaryAccountHolderName = ChangePrimaryAccountHolderNameApiRequest.SendRequestChangePrimaryAccountHolderName(_validNewFirstName, _validNewSecondName, user.TokenData.Token);
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            var webDriver = new ChromeDriver();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(7);
-            webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-            IJavaScriptExecutor js = webDriver;
-            webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
-            js.ExecuteScript($"localStorage.setItem('access_token','{user.TokenData.Token}')");
+
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(_validNewFirstName, newPrimaryAccountHolderName.FirstName);
+                Assert.AreEqual(_validNewSecondName, newPrimaryAccountHolderName.LastName);
+            });
+        }
+
+        [Test]
+        public void ChangeIndustry_ShouldChangeIndustry()
+        {
+            var user = new CreateUserApiRequest().CreateUserViaApi(_validEmail, _validFirstName, _validSecondName, _validPassword, _validPhone);
+
         }
     }
 }
