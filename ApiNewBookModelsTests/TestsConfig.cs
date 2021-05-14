@@ -19,6 +19,9 @@ namespace ApiNewBookModelsTests
         protected static string _validNewFirstName = "Bruce";
         protected static string _validNewSecondName = "Willis";
         protected static ClientAuthModel _user;
+        protected static string _validCompanyName = "Italgas";
+        protected static string _validCompanySite = "http://Italgas.it";
+        protected static string _validCompanyDescription = "ItalGas description";
 
         [SetUp]
         public void Setup()

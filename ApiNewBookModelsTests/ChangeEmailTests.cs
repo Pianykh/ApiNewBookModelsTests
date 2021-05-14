@@ -17,6 +17,6 @@ namespace ApiNewBookModelsTests
             var newEmail = ChangeEmailApiRequest.SendRequestChangeEmail(_validPassword, _validNewEmail, _user.TokenData.Token);
 
             Assert.AreEqual(newEmail, _validNewEmail);
-        }        
+        }
     }
 }
