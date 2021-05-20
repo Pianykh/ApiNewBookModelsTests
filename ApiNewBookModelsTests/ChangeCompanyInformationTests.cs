@@ -11,7 +11,7 @@ using WebDriverManager.Helpers;
 
 namespace ApiNewBookModelsTests
 {
-    class ChangeCompanyInformationTests : TestsConfig
+    public class ChangeCompanyInformationTests : TestsConfig
     {
         [Test]
         public void ChangeCompanyInformation_ShouldChangeCompanyInformation()

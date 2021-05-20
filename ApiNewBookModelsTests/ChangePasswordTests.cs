@@ -11,7 +11,7 @@ using WebDriverManager.Helpers;
 
 namespace ApiNewBookModelsTests
 {
-    class ChangePasswordTests : TestsConfig
+    public class ChangePasswordTests : TestsConfig
     {
         [Test]
         public void ChangePassword_ShouldChangePassword()

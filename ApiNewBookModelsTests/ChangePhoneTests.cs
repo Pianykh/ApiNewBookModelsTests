@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApiNewBookModelsTests
 {
-    class ChangePhoneTests : TestsConfig
+    public class ChangePhoneTests : TestsConfig
     {
         [Test]
         public void ChangePhone_ShouldChangePhone()

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApiNewBookModelsTests.ApiRequests
 {
-    class SignInUserApiRequest
+    public static class SignInUserApiRequest
     {
         public static ClientAuthModel SendRequestSignInUser(string email, string password)
         {
