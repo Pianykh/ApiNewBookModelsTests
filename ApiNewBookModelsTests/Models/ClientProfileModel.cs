@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ApiNewBookModelsTests
-{    
-    public class ClientProfile
+namespace ApiNewBookModelsTests.Models
+{
+    public class ClientProfileModel
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -20,13 +20,13 @@ namespace ApiNewBookModelsTests
         public bool HasInvite { get; set; }
 
         [JsonProperty("company_website")]
-        public object CompanyWebsite { get; set; }
+        public string CompanyWebsite { get; set; }
 
         [JsonProperty("company_name")]
-        public object CompanyName { get; set; }
+        public string CompanyName { get; set; }
 
         [JsonProperty("company_description")]
-        public object CompanyDescription { get; set; }
+        public string CompanyDescription { get; set; }
 
         [JsonProperty("referral")]
         public object Referral { get; set; }
@@ -67,8 +67,28 @@ namespace ApiNewBookModelsTests
         [JsonProperty("youtube_followers")]
         public object YoutubeFollowers { get; set; }
     }
+    public class Avatar
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
 
-    public class User
+        [JsonProperty("large")]
+        public Large Large { get; set; }
+
+        [JsonProperty("small")]
+        public Small Small { get; set; }
+
+        [JsonProperty("medium")]
+        public Medium Medium { get; set; }
+
+        [JsonProperty("thumbnail")]
+        public Thumbnail Thumbnail { get; set; }
+
+        [JsonProperty("original")]
+        public Original Original { get; set; }
+    }
+
+    public class Root
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -95,7 +115,7 @@ namespace ApiNewBookModelsTests
         public bool HasPassword { get; set; }
 
         [JsonProperty("avatar")]
-        public object Avatar { get; set; }
+        public Avatar Avatar { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }
@@ -107,26 +127,4 @@ namespace ApiNewBookModelsTests
         public string LastName { get; set; }
     }
 
-    public class TokenData
-    {
-        [JsonProperty("token")]
-        public string Token { get; set; }
-
-        [JsonProperty("token_refresh_expires")]
-        public DateTime TokenRefreshExpires { get; set; }
-
-        [JsonProperty("firebase_token")]
-        public string FirebaseToken { get; set; }
-
-        [JsonProperty("firebase_token_expires")]
-        public DateTime FirebaseTokenExpires { get; set; }
-    }
-    public class ClientAuthModel
-    {
-        [JsonProperty("user")]
-        public User User { get; set; }
-
-        [JsonProperty("token_data")]
-        public TokenData TokenData { get; set; }
-    }
 }

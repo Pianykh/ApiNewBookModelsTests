@@ -61,6 +61,4 @@ namespace ApiNewBookModelsTests.Models
         [JsonProperty("image")]
         public Image Image { get; set; }
     }
-
-
 }

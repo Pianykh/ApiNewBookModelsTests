@@ -1,4 +1,5 @@
 ﻿using ApiNewBookModelsTests.ApiRequests;
+using ApiNewBookModelsTests.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,16 +16,11 @@ namespace ApiNewBookModelsTests
     {
         [Test]
         public void UploadPhoto_ShouldUploadPhoto()
-        {
-            new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            var webDriver = new ChromeDriver();
-            webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(7);
-            webDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-            IJavaScriptExecutor js = webDriver;
-            webDriver.Navigate().GoToUrl("https://newbookmodels.com/auth/signin");
-            js.ExecuteScript($"localStorage.setItem('access_token','{_user.TokenData.Token}')");
-            var newCompanyInformation = ChangeCompanyInformationApiRequest.SendRequestChangeCompanyInformation(_validCompanyName, _validCompanySite, _validCompanyDescription, _user.TokenData.Token);
-            var uploadImageModel = UploadImageApiRequest.SendRequestUploadImage(_user.TokenData.Token);
+        {                     
+            var uploadImage = UploadImageApiRequest.SendRequestUploadImage(_user.TokenData.Token);
+            var changedAvatar = ChangeAvatarApiRequest.SendRequestChangeAvatar(_user.TokenData.Token, uploadImage.Image.Id);
+            var excpectedAvatar = GetAccountAvatarApiRequest.SendRequestGetAccountAvatar(_user.TokenData.Token);
+            Assert.AreEqual(changedAvatar.Id, excpectedAvatar.Id);            
         }
     }
 }
