@@ -208,6 +208,54 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("It is possible change Primary Account Holder Name to valid Primary Account Holder" +
+            " Name with API request")]
+        [NUnit.Framework.TestCaseAttribute("Willy", "Wonka", "Willy Wonka", null)]
+        public virtual void ItIsPossibleChangePrimaryAccountHolderNameToValidPrimaryAccountHolderNameWithAPIRequest(string newFirstName, string newLastName, string newName, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("newFirstName", newFirstName);
+            argumentsOfScenario.Add("newLastName", newLastName);
+            argumentsOfScenario.Add("newName", newName);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("It is possible change Primary Account Holder Name to valid Primary Account Holder" +
+                    " Name with API request", null, tagsOfScenario, argumentsOfScenario);
+#line 28
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 29
+ testRunner.Given("New Client is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 30
+ testRunner.When(string.Format("I send PATCH request https://api.newbookmodels.com/api/v1/client/self/ with \'{0}\'" +
+                            " and \'{1}\'", newFirstName, newLastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.Then(string.Format("Then Client Primary Account Holder Name was changed to \'{0}\' in NewBookModels Acc" +
+                            "ount", newName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

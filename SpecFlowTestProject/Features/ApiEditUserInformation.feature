@@ -24,3 +24,11 @@ Scenario Outline: It is possible change password to valid password with API requ
 Examples:
 	| newPassword |
 	| 123Qasg(@34 |
+
+Scenario Outline: It is possible change Primary Account Holder Name to valid Primary Account Holder Name with API request
+	Given New Client is created
+	When I send PATCH request https://api.newbookmodels.com/api/v1/client/self/ with '<newFirstName>' and '<newLastName>'
+	Then Then Client Primary Account Holder Name was changed to '<newName>' in NewBookModels Account
+Examples:
+	| newFirstName | newLastName | newName     |
+	| Willy        | Wonka       | Willy Wonka |

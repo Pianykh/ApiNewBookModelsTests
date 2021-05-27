@@ -76,5 +76,21 @@ namespace SpecFlowTestProject.Steps.API
             Assert.AreNotEqual(_scenarioContext.Get<ClientAuthModel>(Context.User).TokenData.Token, actualToken);
         }
 
+        [When(@"I send PATCH request https://api\.newbookmodels\.com/api/v1/client/self/ with '(.*)' and '(.*)'")]
+        public void WhenISendPATCHRequestHttpsApi_Newbookmodels_ComApiVClientSelfWithAnd(string newFirstName, string newLastName)
+        {
+            var user = _scenarioContext.Get<ClientAuthModel>(Context.User);
+            var changedPrimaryAccountHolderNameModel = ChangePrimaryAccountHolderNameApiRequest.SendRequestChangePrimaryAccountHolderName(newFirstName, newLastName, user.TokenData.Token);
+            var newPrimaryAccountHolderName = changedPrimaryAccountHolderNameModel.FirstName + " " + changedPrimaryAccountHolderNameModel.LastName;
+            _scenarioContext.Add(Context.NewPrimaryAccountHolderName, newPrimaryAccountHolderName);
+        }
+
+        [Then(@"Then Client Primary Account Holder Name was changed to '(.*)' in NewBookModels Account")]
+        public void ThenThenClientPrimaryAccountHolderNameWasChangedInNewBookModelsAccount(string newName)
+        {
+            var actualnewPrimaryAccountHolderName = _scenarioContext.Get<string>(Context.NewPrimaryAccountHolderName);
+            Assert.AreEqual(newName, actualnewPrimaryAccountHolderName);
+        }
+
     }
 }
