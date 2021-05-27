@@ -1,4 +1,5 @@
 ﻿using ApiNewBookModelsTests;
+using ApiNewBookModelsTests.ApiRequests;
 using ApiNewBookModelsTests.ApiRequests.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -44,5 +45,21 @@ namespace SpecFlowTestProject.Steps.API
             var actualEmail = _scenarioContext.Get<string>(Context.NewEmail);
             Assert.AreEqual(usedUniqueEmail, actualEmail);
         }
+
+        [When(@"I send POST request https://api\.newbookmodels\.com/api/v1/client/change_phone/ with '(.*)'")]
+        public void WhenISendPOSTRequestHttpsApi_Newbookmodels_ComApiVClientChange_PhoneWith(string newPhone)
+        {
+            var user = _scenarioContext.Get<ClientAuthModel>(Context.User);
+            var changedPhone = ChangePhoneApiRequest.SendRequestChangePhone(Constants.Password, newPhone, user.TokenData.Token);
+            _scenarioContext.Add(Context.NewPhone, changedPhone);
+        }
+
+        [Then(@"Then Client phone was changed to '(.*)' in NewBookModels Account")]
+        public void ThenThenClientPhoneWasChangedToInNewBookModelsAccount(string newPhone)
+        {
+            var actualPhone = _scenarioContext.Get<string>(Context.NewPhone);
+            Assert.AreEqual(newPhone, actualPhone);
+        }
+
     }
 }

@@ -5,5 +5,6 @@
         public const string WebDriver = "WebDriver";
         public const string User = "User";
         public const string NewEmail = "NewEmail";
+        public const string NewPhone = "NewPhone";
     }
 }
