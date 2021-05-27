@@ -81,10 +81,13 @@ namespace SpecFlowTestProject.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("It is possible change email to valid email with API request")]
-        public virtual void ItIsPossibleChangeEmailToValidEmailWithAPIRequest()
+        [NUnit.Framework.TestCaseAttribute("uniqueEmail", "usedUniqueEmail", null)]
+        public virtual void ItIsPossibleChangeEmailToValidEmailWithAPIRequest(string uniqueEmail, string usedUniqueEmail, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("uniqueEmail", uniqueEmail);
+            argumentsOfScenario.Add("usedUniqueEmail", usedUniqueEmail);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("It is possible change email to valid email with API request", null, tagsOfScenario, argumentsOfScenario);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
@@ -107,14 +110,14 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
- testRunner.Given("Client is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("New Client is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.When("I send POST request https://api.newbookmodels.com/api/v1/client/change_email/ wit" +
-                        "h \'<uniqueEmail>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I send POST request https://api.newbookmodels.com/api/v1/client/change_email/ wit" +
+                            "h \'{0}\'", uniqueEmail), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
- testRunner.Then("Then Client email was changed to \'<usedUniqueEmail>\' in NewBookModels Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("Then Client email was changed to \'{0}\' in NewBookModels Account", usedUniqueEmail), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
