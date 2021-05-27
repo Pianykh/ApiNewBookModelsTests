@@ -61,5 +61,20 @@ namespace SpecFlowTestProject.Steps.API
             Assert.AreEqual(newPhone, actualPhone);
         }
 
+        [When(@"I send POST request https://api\.newbookmodels\.com/api/v1/password/change/ with '(.*)'")]
+        public void WhenISendPOSTRequestHttpsApi_Newbookmodels_ComApiVPasswordChangeWith(string newPassword)
+        {
+            var user = _scenarioContext.Get<ClientAuthModel>(Context.User);
+            var changedToken = ChangePhoneApiRequest.SendRequestChangePhone(Constants.Password, newPassword, user.TokenData.Token);
+            _scenarioContext.Add(Context.NewToken, changedToken);
+        }
+
+        [Then(@"Then Client password was changed in NewBookModels Account")]
+        public void ThenThenClientPasswordWasChangedToInNewBookModelsAccount()
+        {
+            var actualToken = _scenarioContext.Get<string>(Context.NewToken);
+            Assert.AreNotEqual(_scenarioContext.Get<ClientAuthModel>(Context.User).TokenData.Token, actualToken);
+        }
+
     }
 }

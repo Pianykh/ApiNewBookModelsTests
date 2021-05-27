@@ -16,3 +16,11 @@ Scenario Outline: It is possible change phone to valid phone with API request
 Examples:
 	| newPhone   |
 	| 4131424545 |
+
+Scenario Outline: It is possible change password to valid password with API request
+	Given New Client is created
+	When I send POST request https://api.newbookmodels.com/api/v1/password/change/ with '<newPassword>'
+	Then Then Client password was changed in NewBookModels Account
+Examples:
+	| newPassword |
+	| 123Qasg(@34 |
