@@ -18,7 +18,7 @@ namespace SpecFlowTestProject.Steps.API
             _scenarioContext = scenarioContext;            
         }
 
-        [When(@"I send POST request https://api\.newbookmodels\.com/api/v(.*)/client/change_email/ with '(.*)'")]
+        [When(@"I send POST request https://api\.newbookmodels\.com/api/v1/client/change_email/ with '(.*)'")]
         public void WhenISendPOSTRequestHttpsApi_Newbookmodels_ComApiVClientChange_Email(string uniqueEmail)
         {
             var user = _scenarioContext.Get<ClientAuthModel>(Context.User);
