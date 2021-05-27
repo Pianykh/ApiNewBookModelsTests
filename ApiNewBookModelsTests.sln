@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiNewBookModelsTests", "ApiNewBookModelsTests\ApiNewBookModelsTests.csproj", "{C9E93359-A53A-4555-98F6-CEA5CE8C596E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiNewBookModelsTests", "ApiNewBookModelsTests\ApiNewBookModelsTests.csproj", "{C9E93359-A53A-4555-98F6-CEA5CE8C596E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW12", "..\HW12\HW12\HW12.csproj", "{9C7B523C-B63E-425E-B4AA-81CB771F2A0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowTestProject", "SpecFlowTestProject\SpecFlowTestProject.csproj", "{B608CF8D-A9C5-471E-A098-ED9C83E65085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9C7B523C-B63E-425E-B4AA-81CB771F2A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7B523C-B63E-425E-B4AA-81CB771F2A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C7B523C-B63E-425E-B4AA-81CB771F2A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B608CF8D-A9C5-471E-A098-ED9C83E65085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B608CF8D-A9C5-471E-A098-ED9C83E65085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B608CF8D-A9C5-471E-A098-ED9C83E65085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B608CF8D-A9C5-471E-A098-ED9C83E65085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
