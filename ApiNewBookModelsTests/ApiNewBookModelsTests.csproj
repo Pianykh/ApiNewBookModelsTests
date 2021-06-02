@@ -15,11 +15,5 @@
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="WebDriverManager" Version="2.11.1" />
   </ItemGroup>
-
-	<application xmlns="urn:schemas-microsoft-com:asm.v3">
-<windowsSettings>
-<longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
-</windowsSettings>
-</application>
 	
 </Project>
