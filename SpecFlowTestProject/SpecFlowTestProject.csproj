@@ -50,7 +50,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\HW12\HW12\HW12.csproj" />
-    <ProjectReference Include="..\ApiNewBookModelsTests\ApiNewBookModelsTests.csproj" />
   </ItemGroup>
 
   <ItemGroup>
