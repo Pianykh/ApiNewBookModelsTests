@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiNewBookModelsTests", "Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowTestProject", "SpecFlowTestProject\SpecFlowTestProject.csproj", "{B608CF8D-A9C5-471E-A098-ED9C83E65085}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW12Auto", "HW12Auto\HW12Auto.csproj", "{C612D110-560A-45A7-8BC0-23C4DCAEDA26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW12Auto", "HW12Auto\HW12Auto.csproj", "{C612D110-560A-45A7-8BC0-23C4DCAEDA26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93B34350-02D9-4DC7-B35E-9DD694B8A382}"
+	ProjectSection(SolutionItems) = preProject
+		allure.bat = allure.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
