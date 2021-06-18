@@ -6,5 +6,9 @@ namespace ApiNewBookModelsTests.Models
 {
     class TestGithub
     {
+        public void TestMethod()
+        {
+            Console.WriteLine("Test");
+        }
     }
 }
