@@ -24,7 +24,7 @@ namespace SpecflowTestProject
         public void BeforeScenario()
         {
             new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-            var driver = new ChromeDriver();
+            var driver = new ChromeDriver();            
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
@@ -34,6 +34,7 @@ namespace SpecflowTestProject
         [AfterScenario("ui")]
         public void AfterScenario()
         {
+            _scenarioContext.Get<IWebDriver>(Context.WebDriver).Close();
             _scenarioContext.Get<IWebDriver>(Context.WebDriver).Quit();
         }
         [AfterStep("ui")]
